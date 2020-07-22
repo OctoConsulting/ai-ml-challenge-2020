@@ -7,6 +7,7 @@ import nltk
 import pdfplumber
 import docx
 
+
 def extract_all_clauses(document):
     # Checks document type, uses OCR to parse text from document, and returns a list of clauses
     # Input: Word document (.docx) or pdf document (.pdf)
