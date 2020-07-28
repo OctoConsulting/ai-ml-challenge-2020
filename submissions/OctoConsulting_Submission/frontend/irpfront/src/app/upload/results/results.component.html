@@ -1,0 +1,40 @@
+<div class="result-page">
+  <mat-card id="pdf-card">
+      <pdf-viewer class="pdf-viewer" [src]="pdfSrc" [page]="1" [show-all]="false"[original-size]="false" [autoresize]="true"></pdf-viewer>
+  </mat-card>
+  <div id="info-card">
+    <h3>Resume Analysis Results</h3>
+    <mat-card-content>
+      <div class="skill-card">
+
+          <mat-card>
+            <mat-card-title>Matched Skills</mat-card-title>
+            <mat-card-content [ngClass]="result?.skill_metrics?.S !== '0' ? 'green-score' : 'red-score'">{{result?.skill_metrics?.S}}</mat-card-content>
+          </mat-card>
+          <mat-card>
+            <mat-card-title>Matched Agencies</mat-card-title>
+            <mat-card-content [ngClass]="result?.agency_metrics?.S !== '0' ? 'green-score' : 'red-score'">{{result?.agency_metrics?.S}}</mat-card-content>
+          </mat-card>
+          <mat-card>
+            <mat-card-title>Matched Certifications</mat-card-title>
+            <mat-card-content [ngClass]="result?.cert_metrics?.S !== '0' ? 'green-score' : 'red-score'">{{result?.cert_metrics?.S}}</mat-card-content>
+          </mat-card>
+          <mat-card>
+              <mat-card-title>Matched Experience</mat-card-title>
+              <mat-card-content [ngClass]="nlpCompare(result?.sim_rank?.S) ? 'green-score' : 'red-score'">{{result?.sim_rank?.S | number:'1.1-2'}}</mat-card-content>
+            </mat-card>
+          <mat-card>
+            <mat-card-title style="margin-bottom: 0px">Final Score</mat-card-title>
+          <mat-card-content [ngClass]="result?.sim_rank?.S !== '0' ? 'green-score' : 'red-score'">
+
+            <div class="grade" [ngClass]="getGrade(result?.logistic?.S) !== 'F' ? 'green-score' : 'red-score'">
+              {{getGrade(result?.logistic?.S)}}
+            </div>
+                        
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </mat-card-content>
+  </div>
+</div>

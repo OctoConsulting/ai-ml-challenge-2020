@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    background-color: #f8f9fb;
+    font-family: 'Roboto', sans-serif;
+
+    .mat-step-header .mat-step-icon-selected {
+        background-color: #000000ed !important;
+    }
+
+    .mat-step-header .mat-step-icon-state-edit {
+        background-color: #000000ed !important;
+    }
+
+    .mat-option.mat-selected:not(.mat-option-disabled) {
+        color: #000000ed !important;
+    }
+
+    .mat-progress-bar-fill::after {
+        background-color: #444444;
+      }
+      
+    .mat-progress-bar-buffer {
+        background-color: #dbdcdd;
+    }
+
+    .mat-raised-button.mat-primary {
+        background-color: #000000ed;
+        margin: 2px 5px;
+    }
+
+    .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: #000000ed !important;
+    }
+}
