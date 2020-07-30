@@ -19,13 +19,13 @@ def extract_all_clauses(document):
         text_body = _pdf_to_text_body(document)
     else:
         return("Error: The supplied document is not the correct filetype. Please upload a docx or pdf document to proceed.")
-    return(_parse_clauses(text_body))
+    return(parse_sentences(text_body))
 
 
-def _parse_clauses(body):
+def parse_sentences(body):
     # Input: Body of text as a single string
     # Output: List of tokenized sentences
-    tokenizer = nltk.data.load('/punkt/english.pickle')
+    tokenizer = nltk.data.load('/nltk_data/corpora/punkt/english.pickle')
     return tokenizer.tokenize(body)
 
 
