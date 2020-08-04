@@ -60,8 +60,8 @@ if __name__ == '__main__':
     # clauses = parse_clauses(test_2)
     # print(clauses)
 
-    test_pdf_path = "C:/Users/Andrea.Mycroft/Projects/GSA-AI/reference/sample_eula_2.pdf"
-    test_docx_path = "C:/Users/Andrea.Mycroft/Projects/GSA-AI/reference/sample_eula_2.docx"
+    test_pdf_path = "C:/Users/meredith.lee/Documents/GitHub/GSA-AI/submissions/OctoConsulting_Submission/backend/testdata/test1.pdf"
+    test_docx_path = "C:/Users/meredith.lee/Documents/GitHub/GSA-AI/submissions/OctoConsulting_Submission/backend/testdata/test1.docx"
     # pdf_to_text_body(test_pdf_path)
 
     # parsed_doc = extract_all_clauses(test_pdf_path)
