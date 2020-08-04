@@ -30,7 +30,7 @@ export class AnalysisStepsComponent implements OnInit {
     }, 10000);
 
     const checkForResult = setInterval( () => {
-      if (this.step >= 6 && this.result) {
+      if (this.step >= 3 && this.result) {
         this.done.emit(this.result);
         clearInterval(checkForResult);
       }
