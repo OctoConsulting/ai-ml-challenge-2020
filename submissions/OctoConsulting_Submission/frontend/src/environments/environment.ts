@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  POST_URL: 'http://localhost:8080',
+  POST_URL: 'http://localhost:5000',
   API_GATEWAY: `https://us-central1-testproject-170015.cloudfunctions.net/dynamo-access`
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
