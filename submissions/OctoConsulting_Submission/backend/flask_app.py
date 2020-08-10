@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 # import clause_parsing
 
 #path to local upload_folder
-UPLOAD_FOLDER = 'C:/Users/meredith.lee/Documents/GitHub/GSA-AI/submissions/OctoConsulting_Submission/backend/testdata/uploads/'
+UPLOAD_FOLDER = './testdata/uploads/'
 #Allows .pdf and .doc
 ALLOWED_EXTENSIONS = {'.pdf','.docx'}
 
@@ -16,25 +16,29 @@ app.config['UPLOAD_FOLDER']= UPLOAD_FOLDER
 
 #Allowed file types
 def allowed_file(filename):
-    return 'true'
+    return True
     # return '.' in filename and \
     #        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.after_request
 def after_request(response):
-  response.headers[Access-Control-Allow-Origin] = '*'
+  response.headers['Access-Control-Allow-Origin'] = '*'
   response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   response.headers.add('Access-Control-Allow-Credentials', 'true')
   return response
 
-@app.route("/", methods=['GET','POST'])
+@app.route("/upload", methods=['GET','POST','OPTIONS'])
 # def hello():
 #     return "Hello World"
     # return clause_parsing.extract_all_clauses('hello.none')
 
 def upload_file():   
+    print("METHOD: " + request.method)
+    if request.method == 'OPTIONS':
+        print("returning 204 for options")
+        return "204"
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:

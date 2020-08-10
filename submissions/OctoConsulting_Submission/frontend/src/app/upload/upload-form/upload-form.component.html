@@ -22,7 +22,7 @@
     </div>
     <input id="singleFile" type="file" [fileUploadInputFor]="fileUploadQueue" />
     <div class="card-content upload-progress">
-      <mat-file-upload-queue #fileUploadQueue [fileAlias]="'Resume'">
+      <mat-file-upload-queue #fileUploadQueue [fileAlias]="'file'">
         <mat-file-upload
           (onUpload)="uploadNotification($event)"
           [file]="file"

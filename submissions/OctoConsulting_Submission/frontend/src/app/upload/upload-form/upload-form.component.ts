@@ -27,9 +27,11 @@ export class UploadFormComponent implements OnInit {
     // this.http.post(environment.POST_URL, event.file).subscribe()
   }
 
-  public getUrl(name): string {
-    const encrypted = btoa(name.split('.')[0]);
-    this.resId.emit(encrypted);
-    // return this.testUrl + `/${encrypted}.pdf`;
-    return this.postUrl + `/${encrypted}.pdf`;  }
+  // public getUrl(name): string {
+  //   const encrypted = btoa(name.split('.')[0]);
+  //   this.resId.emit(encrypted);
+  //   // return this.testUrl + `/${encrypted}.pdf`;
+  //   return this.postUrl + `/${encrypted}.pdf`; 
+  // }
+  public getUrl(name): string { return this.postUrl + "/upload"; }
 }
