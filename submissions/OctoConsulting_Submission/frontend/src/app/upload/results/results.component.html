@@ -24,7 +24,7 @@
         <div *ngFor="let obj of data">
           <mat-card>
             <mat-card-title>{{""  + obj.score + " : " + (obj.score > 0.7 ? "Good" : "Likely Unacceptable")}}</mat-card-title>
-            <mat-card-content [ngClass]="obj.score > 0.7 ? 'green-score' : 'red-score'">{{ obj.clause }}</mat-card-content>
+            <mat-card-content [ngClass]="{ greenScore: obj.score > 0.7, redSCore: obj.score <= 0.7, content: true }">{{ obj.clause }}</mat-card-content>
           </mat-card>
         </div>
 
