@@ -25,4 +25,14 @@ export class APIService {
                     })
                 );
     }
+    public getJSON(): Observable<any> {
+        return this.httpClient.get("http://localhost:5000/getjson")
+            .pipe(map( rep => {
+                try {
+                    return rep;
+                } catch(e) {
+                    throwError(e);
+                }
+            }))
+    }
 }
