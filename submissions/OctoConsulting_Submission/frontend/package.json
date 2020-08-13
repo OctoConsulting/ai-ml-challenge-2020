@@ -31,6 +31,7 @@
     "ng2-pdf-viewer": "^5.2.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "uswds": "^2.8.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

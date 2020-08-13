@@ -17,6 +17,17 @@ export class ResultsComponent implements OnInit {
  
   constructor(private apiService: APIService) { }
 
+  data = [
+    {
+      clause: "EULA, pronounced YOOLA",
+      score: 0.8
+    },
+    {
+      clause: "YOOLA, pronounced EULA",
+      score: 0.3
+    }
+  ]
+
   ngOnInit() {
     this.onFileSelected();
     // this.apiService.pollResults('RGlya19EaWdnbGVyX1Jlc3VtZQ==').subscribe(

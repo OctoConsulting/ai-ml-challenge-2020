@@ -1,5 +1,7 @@
 .result-page {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 @media only screen and (min-width:1500px) {
     .result-page {
@@ -57,9 +59,12 @@ mat-card-content {
     font-size: 3rem
 }
 
-.green-score {
+.greenScore {
     color: #23992e;
 }
-.red-score {
+.redScore {
     color: #d84b4b;
+}
+.content {
+    font-size: 14px;
 }
