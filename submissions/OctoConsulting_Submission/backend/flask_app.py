@@ -7,6 +7,7 @@ import download_model
 
 #path to local upload_folder
 UPLOAD_FOLDER = './testdata/uploads/'
+FINISHED_FOLDER = './testdata/finished/'
 #Allows .pdf and .doc
 ALLOWED_EXTENSIONS = {'.pdf','.docx'}
 
@@ -31,10 +32,6 @@ def after_request(response):
   return response
 
 @app.route("/upload", methods=['GET','POST','OPTIONS'])
-# def hello():
-#     return "Hello World"
-    # return clause_parsing.extract_all_clauses('hello.none')
-
 def upload_file():   
     print("METHOD: " + request.method)
     if request.method == 'OPTIONS':
