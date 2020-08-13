@@ -15,11 +15,11 @@ export class NavbarComponent implements OnInit {
         path: '/upload',
         isActive: true
       },
-      {
-        name: 'Dashboard',
-        path: '/dashboard',
-        isActive: false
-      }
+      // {
+      //   name: 'Dashboard',
+      //   path: '/dashboard',
+      //   isActive: false
+      // }
     ]
   };
 
