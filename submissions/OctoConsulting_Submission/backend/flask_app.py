@@ -2,8 +2,8 @@ import os
 from flask import Flask, flash, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-import doc_to_classifications
-import download_model
+# import doc_to_classifications
+# import download_model
 
 #path to local upload_folder
 UPLOAD_FOLDER = './testdata/uploads/'
@@ -55,6 +55,12 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return ""
     return ""
+    
+@app.route("/getjson")
+def getjson():
+    f = open("testdata/fakedata.json", "r")
+    content = f.read()
+    return content
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

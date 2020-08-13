@@ -17,18 +17,24 @@ export class ResultsComponent implements OnInit {
  
   constructor(private apiService: APIService) { }
 
-  data = [
-    {
-      clause: "EULA, pronounced YOOLA",
-      score: 0.8
-    },
-    {
-      clause: "YOOLA, pronounced EULA",
-      score: 0.3
-    }
-  ]
+  data = [] //[
+  //   {
+  //     clause: "EULA, pronounced YOOLA",
+  //     score: 0.8
+  //   },
+  //   {
+  //     clause: "YOOLA, pronounced EULA",
+  //     score: 0.3
+  //   }
+  // ]
+
 
   ngOnInit() {
+    this.apiService.getJSON().subscribe(res => {
+        console.log("======================")
+        this.data = res as [{clause: string, score: number}]
+    })
+  
     this.onFileSelected();
     // this.apiService.pollResults('RGlya19EaWdnbGVyX1Jlc3VtZQ==').subscribe(
     //   response => {

@@ -7,10 +7,6 @@
     <mat-card-content>
       <div class="skill-card">
 
-             <mat-card>
-              <mat-card-title>Total Bad Clauses</mat-card-title>
-              <mat-card-content [ngClass]="nlpCompare(result?.sim_rank?.S) ? 'green-score' : 'red-score'">{{result?.sim_rank?.S | number:'1.1-2'}}</mat-card-content>
-            </mat-card>
           <!-- <mat-card>
             <mat-card-title style="margin-bottom: 0px">Final Score</mat-card-title>
           <mat-card-content [ngClass]="result?.sim_rank?.S !== '0' ? 'green-score' : 'red-score'">
@@ -23,8 +19,13 @@
         </mat-card> -->
         <div *ngFor="let obj of data">
           <mat-card>
-            <mat-card-title>{{""  + obj.score + " : " + (obj.score > 0.7 ? "Good" : "Likely Unacceptable")}}</mat-card-title>
-            <mat-card-content [ngClass]="{ greenScore: obj.score > 0.7, redSCore: obj.score <= 0.7, content: true }">{{ obj.clause }}</mat-card-content>
+            <!-- <mat-card-title>{{""  + obj.score + " : " + (obj.score > 0.7 ? "Good" : "Likely Unacceptable")}}</mat-card-title> -->
+            <mat-card-content [ngClass]="{ greenScore: obj.score > 0.7, redScore: obj.score <= 0.7, content: true }">
+              {{ obj.text }}
+              <div style="font-size: 15px; font-style: italic;">
+                {{ obj.score }} %  {{ obj.score > 0.7 ? " Acceptable" : " Unacceptable"}}
+              </div>
+            </mat-card-content>
           </mat-card>
         </div>
 
