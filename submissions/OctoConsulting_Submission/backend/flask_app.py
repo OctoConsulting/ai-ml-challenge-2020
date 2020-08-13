@@ -2,7 +2,8 @@ import os
 from flask import Flask, flash, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-# import clause_parsing
+import doc_to_classifications
+import download_model
 
 #path to local upload_folder
 UPLOAD_FOLDER = './testdata/uploads/'
@@ -69,6 +70,12 @@ app.add_url_rule('/uploads/<filename>', 'uploaded_file',
 app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
     '/uploads':  app.config['UPLOAD_FOLDER']
 })
+
+def dwnld_model():
+    download_model.download_model_fr_drive()
+
+def run_classification(filename):
+    return doc_to_classifications.main_pipeline(filename)
 
 if __name__ == '__main__':
     app.run()

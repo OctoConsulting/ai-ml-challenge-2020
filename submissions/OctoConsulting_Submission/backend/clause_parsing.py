@@ -31,11 +31,12 @@ def parse_sentences(body):
 
 def _doc_to_text_body(doc_path):
     # Converts contents of word doc to string
-    print("Word Doc OCR")
+    print("Word Doc OCR Starting")
     doc = docx.Document(doc_path)
     text_body_arr = []
     for para in doc.paragraphs:
         text_body_arr.append(para.text)
+    print("Word Doc OCR Finished")
     return ' '.join(text_body_arr)
 
 
@@ -43,12 +44,13 @@ def _pdf_to_text_body(pdf_path):
     # Converts contents of PDF to string
     # Input: Path to pdf doc
     # Output: A single string that is all of the extracted text from the pdf doc
-    print("PDF OCR")
+    print("PDF OCR Starting")
     text_body_arr = []
     with pdfplumber.open(pdf_path) as pdf:
         for each_page in pdf.pages:
             page_text = each_page.extract_text()
             text_body_arr.append(page_text)
+    print("PDF OCR Finished")
     return ' '.join(text_body_arr)
     # for clause in parsed:
     #     print(clause)
