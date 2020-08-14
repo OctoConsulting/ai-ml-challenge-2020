@@ -7,11 +7,11 @@ import boto3
 
 def classify_sentences(sent_list):
     print("Encoding sentences for classification")
-    file_save_loc = 'model/downloaded_model.pt'
-    s3 = boto3.client('s3')
-    s3.download_file('BUCKET_NAME', 'OBJECT_NAME', file_save_loc)
-    # PATH = "model/model.pt"
-    PATH = file_save_loc
+    # file_save_loc = 'model/downloaded_model.pt'
+    # s3 = boto3.client('s3')
+    # s3.download_file('BUCKET_NAME', 'OBJECT_NAME', file_save_loc)
+    PATH = "model/model.pt"
+    # PATH = file_save_loc
     device = torch.device('cpu')
     model = BertForSequenceClassification.from_pretrained(
         "bert-base-uncased", # Use the 12-layer BERT model, with an uncased vocab.
