@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
+import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import { ChartType, ChartPoint } from 'chart.js';
 
 
@@ -28,6 +29,22 @@ export class ResultsComponent implements OnInit {
   //   }
   // ]
 
+  @ViewChild(PdfViewerComponent) private pdfViewer: PdfViewerComponent;
+  
+
+  search(stringToSearch: string) {
+    console.log(0);
+    
+    // [...document.getElementsByClassName('highlight')].forEach(e=>e.classList.remove('highlight'))
+
+    this.pdfViewer.pdfFindController.executeCommand('find', {
+      caseSensitive: false, findPrevious: undefined, highlightAll: true, phraseSearch: true, query: stringToSearch
+    });
+    
+    setTimeout(()=>{
+      document.getElementsByClassName('highlight middle selected')[0].scrollIntoView({behavior:"smooth"})
+    }, 1000)
+  }
 
   ngOnInit() {
     this.apiService.getJSON().subscribe(res => {
@@ -69,20 +86,20 @@ export class ResultsComponent implements OnInit {
     return +input > 4;
   }
 
-  public getGrade(grade: string) {
-    const intGrade = Number(grade);
-    let retVal = 'N/A';
-    if (intGrade < 0.65) {
-      retVal = 'F';
-    } else if (intGrade >= 0.60 && intGrade < 0.70) {
-      retVal = 'D';
-    } else if (intGrade >= 0.70 && intGrade < 0.80) {
-      retVal = 'C';
-    } else if (intGrade >= 0.80 && intGrade < 0.90) {
-      retVal = 'B';
-    } else if (intGrade >= 0.90) {
-      retVal = 'A';
-    }
-    return retVal;
-  }
+  // public getGrade(grade: string) {
+  //   const intGrade = Number(grade);
+  //   let retVal = 'N/A';
+  //   if (intGrade < 0.65) {
+  //     retVal = 'F';
+  //   } else if (intGrade >= 0.60 && intGrade < 0.70) {
+  //     retVal = 'D';
+  //   } else if (intGrade >= 0.70 && intGrade < 0.80) {
+  //     retVal = 'C';
+  //   } else if (intGrade >= 0.80 && intGrade < 0.90) {
+  //     retVal = 'B';
+  //   } else if (intGrade >= 0.90) {
+  //     retVal = 'A';
+  //   }
+  //   return retVal;
+  // }
 }
