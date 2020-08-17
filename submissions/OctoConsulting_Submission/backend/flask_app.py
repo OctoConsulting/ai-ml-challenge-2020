@@ -2,6 +2,7 @@ import os
 from flask import Flask, flash, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+from docx2pdf import convert
 import doc_to_classifications
 import download_model
 
@@ -18,9 +19,9 @@ app.config['UPLOAD_FOLDER']= UPLOAD_FOLDER
 
 #Allowed file types
 def allowed_file(filename):
-    return True
-    # return '.' in filename and \
-    #        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    # return True
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.after_request
