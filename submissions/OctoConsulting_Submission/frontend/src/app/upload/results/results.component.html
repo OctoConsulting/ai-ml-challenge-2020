@@ -18,7 +18,7 @@
           </mat-card-content>
         </mat-card> -->
         <div *ngFor="let obj of data">
-          <mat-card>
+          <mat-card (click) = "this.search(obj.text)">
             <!-- <mat-card-title>{{""  + obj.score + " : " + (obj.score > 0.7 ? "Good" : "Likely Unacceptable")}}</mat-card-title> -->
             <mat-card-content [ngClass]="{ greenScore: obj.score > 0.7, redScore: obj.score <= 0.7, content: true }">
               {{ obj.text }}
