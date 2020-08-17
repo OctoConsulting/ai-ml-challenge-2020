@@ -2,8 +2,8 @@ import os
 from flask import Flask, flash, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-# import doc_to_classifications
-# import download_model
+import doc_to_classifications
+import download_model
 
 #path to local upload_folder
 UPLOAD_FOLDER = './testdata/uploads/'
@@ -31,6 +31,8 @@ def after_request(response):
   response.headers.add('Access-Control-Allow-Credentials', 'true')
   return response
 
+json = []
+
 @app.route("/upload", methods=['GET','POST','OPTIONS'])
 def upload_file():   
     print("METHOD: " + request.method)
@@ -52,14 +54,19 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             print(filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filename)
+            global json
+            json = run_classification(filename)
             return ""
     return ""
     
 @app.route("/getjson")
 def getjson():
-    f = open("testdata/fakedata.json", "r")
-    content = f.read()
+    #f = open("testdata/fakedata.json", "r")
+    #content = f.read()
+    global json
+    content = str(json)
     return content
 
 @app.route('/uploads/<filename>')
@@ -74,11 +81,12 @@ app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
     '/uploads':  app.config['UPLOAD_FOLDER']
 })
 
-def dwnld_model():
-    download_model.download_model_fr_drive()
 
 def run_classification(filename):
     return doc_to_classifications.main_pipeline(filename)
 
 if __name__ == '__main__':
-    app.run()
+    print("downloading model")
+    download_model.download_model_fr_drive()
+    print("model downloaded")
+    app.run(host='0.0.0.0')
