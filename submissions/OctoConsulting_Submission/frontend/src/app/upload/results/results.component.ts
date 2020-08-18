@@ -33,7 +33,7 @@ export class ResultsComponent implements OnInit {
   
 
   search(stringToSearch: string) {
-    console.log(0);
+    console.log("trying to highlight " + stringToSearch);
     
     // [...document.getElementsByClassName('highlight')].forEach(e=>e.classList.remove('highlight'))
 
@@ -42,14 +42,14 @@ export class ResultsComponent implements OnInit {
     });
     
     setTimeout(()=>{
-      document.getElementsByClassName('highlight middle selected')[0].scrollIntoView({behavior:"smooth"})
+      // document.getElementsByClassName('highlight middle selected')[0].scrollIntoView({behavior:"smooth"})
     }, 1000)
   }
 
   ngOnInit() {
     this.apiService.getJSON().subscribe(res => {
         console.log("======================")
-        this.data = res as [{clause: string, score: number}]
+        this.data = res.data as [{clause: string, confidence_score: number}]
     })
   
     this.onFileSelected();

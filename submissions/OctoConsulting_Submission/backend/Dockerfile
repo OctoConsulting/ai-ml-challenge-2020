@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-runtime
+FROM pytorch/pytorch:latest
 
 LABEL maintainer="Carson.Graham@OctoConsulting.com"
 
@@ -14,7 +14,7 @@ RUN pip install pandas
 RUN pip install googledrivedownloader
 
 RUN mkdir -p /inst/testdata/uploads
-COPY *.py /inst/
+COPY * /inst/
 COPY ./nltk_data/ /nltk_data/
 EXPOSE 5000
 

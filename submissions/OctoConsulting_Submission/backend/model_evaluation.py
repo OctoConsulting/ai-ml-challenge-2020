@@ -44,7 +44,7 @@ def classify_sentences(sent_list):
             truncation=True,
             pad_to_max_length=True,
             return_attention_mask=True,  # Construct attn. masks.
-            return_tensors='pt',  # Return pytorch tensors.
+        return_tensors='pt',  # Return pytorch tensors.
         )
 
         # Add the encoded sentence to the list.
