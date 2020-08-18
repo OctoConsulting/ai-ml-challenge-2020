@@ -2,15 +2,14 @@ import os
 from flask import Flask, flash, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-from docx2pdf import convert
-import doc_to_classifications
-import download_model
+# import doc_to_classifications
+# import download_model
 
 #path to local upload_folder
 UPLOAD_FOLDER = './testdata/uploads/'
 FINISHED_FOLDER = './testdata/finished/'
 #Allows .pdf and .doc
-ALLOWED_EXTENSIONS = {'.pdf','.docx'}
+ALLOWED_EXTENSIONS = {'pdf','docx'}
 
 app = Flask(__name__)
 CORS(app)
@@ -20,6 +19,7 @@ app.config['UPLOAD_FOLDER']= UPLOAD_FOLDER
 #Allowed file types
 def allowed_file(filename):
     # return True
+    print(filename.rsplit('.', 1)[1].lower())
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -58,7 +58,7 @@ def upload_file():
             filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filename)
             global json
-            json = run_classification(filename)
+            # json = run_classification(filename)
             return ""
     return ""
     
@@ -87,7 +87,8 @@ def run_classification(filename):
     return doc_to_classifications.main_pipeline(filename)
 
 if __name__ == '__main__':
-    print("downloading model")
-    download_model.download_model_fr_drive()
+    print("downloading model")        
+    # download_model.download_model_fr_drive()
     print("model downloaded")
     app.run(host='0.0.0.0')
+    print("model downloaded again")

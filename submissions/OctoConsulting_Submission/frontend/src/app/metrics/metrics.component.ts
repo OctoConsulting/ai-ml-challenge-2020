@@ -31,27 +31,27 @@ export class MetricsComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
-    this.apiService.pollResults('all').subscribe(
-         response => {
-           if (response.Items) {
-             this.result = response.Items;
-             this.dataSource = new MatTableDataSource(this.result);
-             this.dataSource.sort = this.sort;
-             this.result.forEach(res => {
-                this.logistic.push(res.logistic.S * 100);
-                if (res.logistic.S < 0.70) {
-                  this.pieBad.push(res.logistic.S * 100);
-                } else {
-                  this.pieGood.push(res.logistic.S * 100);
-                }
-                this.resname.push(atob(res.uuid.S));
-                this.skills.push(res.skill_metrics.S);
-             });
+    // this.apiService.pollResults('all').subscribe(
+    //      response => {
+    //        if (response.Items) {
+    //          this.result = response.Items;
+    //          this.dataSource = new MatTableDataSource(this.result);
+    //          this.dataSource.sort = this.sort;
+    //          this.result.forEach(res => {
+    //             this.logistic.push(res.logistic.S * 100);
+    //             if (res.logistic.S < 0.70) {
+    //               this.pieBad.push(res.logistic.S * 100);
+    //             } else {
+    //               this.pieGood.push(res.logistic.S * 100);
+    //             }
+    //             this.resname.push(atob(res.uuid.S));
+    //             this.skills.push(res.skill_metrics.S);
+    //          });
 
             
-           }
-         }
-       );
+    //        }
+    //      }
+    //    );
   }
 
   convertString(name: string): string {
