@@ -21,13 +21,13 @@ export class AnalysisStepsComponent implements OnInit {
       }
     }, 5000);
 
-    const APIPollInterval = setInterval( () => {
-      if (this.result) {
-        clearInterval(APIPollInterval);
-      } else {
-        this.pollForResults();
-      }
-    }, 10000);
+    // const APIPollInterval = setInterval( () => {
+    //   if (this.result) {
+    //     clearInterval(APIPollInterval);
+    //   } else {
+    //     this.pollForResults();
+    //   }
+    // }, 10000);
 
     const checkForResult = setInterval( () => {
       if (this.step >= 3 && this.result) {
@@ -37,15 +37,15 @@ export class AnalysisStepsComponent implements OnInit {
     }, 1000);
   }
 
-  public pollForResults() {
-    this.apiService.pollResults(this.resId)
-      .subscribe(
-        response => {
-          if (response.Item) {
-            this.result = response.Item;
-          }
-        },
-        error => console.log(error)
-      );
-  }
+  // public pollForResults() {
+  //   this.apiService.pollResults(this.resId)
+  //     .subscribe(
+  //       response => {
+  //         if (response.Item) {
+  //           this.result = response.Item;
+  //         }
+  //       },
+  //       error => console.log(error)
+  //     );
+  // }
 }

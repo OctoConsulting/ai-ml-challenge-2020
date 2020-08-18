@@ -9,22 +9,22 @@ export class APIService {
     private baseUrl = environment.API_GATEWAY;
     constructor(private httpClient: HttpClient) { }
 
-    public pollResults(resId: string): Observable<any> {
-        const queryParams = {
-            uuid: resId
-        };
+    // public pollResults(resId: string): Observable<any> {
+    //     const queryParams = {
+    //         uuid: resId
+    //     };
 
-        return this.httpClient.get(this.baseUrl, {params: queryParams})
-                .pipe(
-                    map ( response => {
-                        try {
-                            return response;
-                        } catch (e) {
-                            throwError(e);
-                        }
-                    })
-                );
-    }
+    //     return this.httpClient.get(this.baseUrl, {params: queryParams})
+    //             .pipe(
+    //                 map ( response => {
+    //                     try {
+    //                         return response;
+    //                     } catch (e) {
+    //                         throwError(e);
+    //                     }
+    //                 })
+    //             );
+    // }
     public getJSON(): Observable<any> {
         return this.httpClient.get("http://localhost:5000/getjson")
             .pipe(map( rep => {
