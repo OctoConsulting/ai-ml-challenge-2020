@@ -2,8 +2,8 @@ import os
 from flask import Flask, flash, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-# import doc_to_classifications
-# import download_model
+import doc_to_classifications
+import download_model
 
 #path to local upload_folder
 UPLOAD_FOLDER = './testdata/uploads/'
@@ -58,7 +58,7 @@ def upload_file():
             filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filename)
             global json
-            # json = run_classification(filename)
+            json = run_classification(filename)
             return ""
     return ""
     
@@ -88,7 +88,7 @@ def run_classification(filename):
 
 if __name__ == '__main__':
     print("downloading model")        
-    # download_model.download_model_fr_drive()
+    download_model.download_model_fr_drive()
     print("model downloaded")
     app.run(host='0.0.0.0')
     print("model downloaded again")
