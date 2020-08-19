@@ -23,12 +23,11 @@
             <mat-card-content [ngClass]="{ greenScore: obj.confidence_score > 0.7, redScore: obj.confidence_score <= 0.7, content: true }">
               {{ obj.clause }}
               <div style="font-size: 15px; font-style: italic;">
-                {{ obj.confidence_score }} %  {{ obj.confidence_score > 0.7 ? " Acceptable" : " Unacceptable"}}
+                {{ parseConf(obj.confidence_score) }}%  {{ obj.confidence_score > 0.7 ? " Acceptable" : " Unacceptable"}}
               </div>
             </mat-card-content>
           </mat-card>
         </div>
-
       </div>
     </mat-card-content>
   </div>

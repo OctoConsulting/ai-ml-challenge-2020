@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UploadFormComponent implements OnInit {
   private postUrl = environment.POST_URL;
-  private testUrl = 'https://storage.googleapis.com/strength-grader-upload';
+  private testUrl = 'http://localhost:5000';
   @Output() resId = new EventEmitter();
   @Output() step = new EventEmitter();
 

@@ -70,6 +70,10 @@ export class ResultsComponent implements OnInit {
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
   }
+  public parseConf(value) {
+    return (value * 100).toFixed(2)
+    // return "" + Math.floor(value * 100)
+  }
 
   public onFileSelected() {
     if (this.file) {
