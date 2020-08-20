@@ -1,0 +1,23 @@
+.half-card {
+    text-align: left;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin: auto 5px;
+}
+
+mat-form-field {
+    width: 60%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .half-card {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .half-card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,4 @@
+Flask~=1.1.2
+nltk~=3.5
+pdfplumber~=0.5.22
+python-docx

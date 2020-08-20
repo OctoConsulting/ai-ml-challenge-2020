@@ -1,0 +1,18 @@
+<mat-toolbar class="app flex header">
+  <span>
+    <img class="logo-img" src="../../assets/ICON_small.png"/>
+  </span>
+  <span class="title">
+    EV
+    <div class="small-text">EULA Validator</div>
+  </span>
+  <span class="displayName">
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link
+      *ngFor="let link of store.links"
+      [routerLink]="link?.path"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">{{link?.name}}</a>
+    </nav>
+  </span>
+</mat-toolbar>

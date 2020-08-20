@@ -1,0 +1,71 @@
+.result-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+@media only screen and (min-width:1500px) {
+    .result-page {
+        width: 80%;
+    }
+}
+.pdf-viewer {
+    max-width: 100%;
+    display: block;
+}
+#pdf-card {
+    width: 60%;
+    display: inline-block;
+    margin: 5px 5px;
+}
+#info-card {
+    margin: 5px 5px;
+    width: 28%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+.skill-card {
+    display: inline-block;
+    width: 90%;
+}
+
+#score-overlay {
+    margin-top: 17%;
+}
+
+#final-score {
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: -31%;
+}
+
+#donut-chart {
+    margin-top: -10%;
+    z-index: 10;
+}
+
+
+mat-card-content {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.donut-chart {
+    margin-top: -50px
+}
+
+.grade {
+    font-size: 3rem
+}
+
+.greenScore {
+    color: #23992e;
+}
+.redScore {
+    color: #d84b4b;
+}
+.content {
+    font-size: 14px;
+}

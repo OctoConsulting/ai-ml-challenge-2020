@@ -1,0 +1,15 @@
+<mat-horizontal-stepper class="app-stepper" [linear]="true" #stepper (selectionChange)="onSelectionChange($event)">
+  <mat-step>
+    <ng-template matStepLabel>Upload</ng-template>
+    <app-upload-form (step)="onUploadDone($event)" (resId)="onResIdSet($event)" *ngIf="loadsUpload"></app-upload-form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Analyzing</ng-template>
+    <app-analysis-steps *ngIf="loadsNext" (done)="onAnalysisDone($event)" [resId]="resId"></app-analysis-steps>
+    <!-- <button mat-raised-button color="primary" *ngIf="showDone" matStepperNext>View Results</button> -->
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Result</ng-template>
+    <app-results *ngIf="file" [file]="file" [result]="result"></app-results>
+  </mat-step>
+</mat-horizontal-stepper>
