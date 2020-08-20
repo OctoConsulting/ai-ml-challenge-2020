@@ -24,6 +24,14 @@ A user navigates to the webpage, uploads a EULA pdf or word doc via drag and dro
 
 
 # Installation steps: 
+## To Run the Flask Server
+
+Install Docker from [here.](https://docs.docker.com/desktop/). To get the docker image, you can either build from source or download from dockerhub
+
+**To run from dockerhub (easier), run the command `docker run -p5000:5000 mee42/octo-gsa-ai flask_app.py`.**
+
+To build from source, Open a different terminal and path to the backend folder in the submissions. Checkout the works branch, navigate to the backend directory, and build the DockerFile using the command `docker build -t gsa-ai:latest .` To run, do `docker run -p5000:5000 gsa-ai:latest flask_app.py`.
+
 ### go to https://octoconsulting.github.io/GSA-AI and click upload in the top right corner
 
 If you want to build from source: 
@@ -35,14 +43,6 @@ If you want to build from source:
 
 
 
-# Now,
-## To Run the Flask Server
-
-Install Docker from [here.](https://docs.docker.com/desktop/). To get the docker image, you can either build from source or download from dockerhub
-
-**To run from dockerhub (easier), run the command `docker run -p5000:5000 mee42/octo-gsa-ai flask_app.py`.**
-
-To build from source, Open a different terminal and path to the backend folder in the submissions. Checkout the works branch, navigate to the backend directory, and build the DockerFile using the command `docker build -t gsa-ai:latest .` To run, do `docker run -p5000:5000 gsa-ai:latest flask_app.py`.
 
 # For more information: 
 Checkout our Wiki. 
