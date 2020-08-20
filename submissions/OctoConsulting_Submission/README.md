@@ -31,7 +31,7 @@ If build from start:
 3. Then run `npm start` and after it finishes open your web browser and go to localhost:4200
 
 otherwise use this: 
-### go to https://octoconsulting.github.io/GSA-AI
+### go to https://octoconsulting.github.io/GSA-AI and click upload in the top right corner
 
 # Now,
 ## To Run the Flask Server
