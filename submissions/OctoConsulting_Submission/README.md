@@ -37,15 +37,6 @@ If you want to build from source:
 
 # Now,
 ## To Run the Flask Server
-Install Docker from [here.](https://docs.docker.com/desktop/)
-
-Open a different terminal and path to the backend folder in OctoConsulting Code and Data/Source Code/.
-
-Checkout the `works` branch.
-
-Build the DockerFile using the command `docker build -t gsa-ai:latest .`
-
-## To Run the Flask Server
 
 Install Docker from [here.](https://docs.docker.com/desktop/). To get the docker image, you can either build from source or download from dockerhub
 
