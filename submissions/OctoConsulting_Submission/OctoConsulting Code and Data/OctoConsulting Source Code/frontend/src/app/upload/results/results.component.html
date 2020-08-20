@@ -1,0 +1,34 @@
+<div class="result-page">
+  <mat-card id="pdf-card">
+      <pdf-viewer class="pdf-viewer" [src]="pdfSrc" [page]="1" [show-all]="true"[original-size]="false" [autoresize]="true"></pdf-viewer>
+  </mat-card>
+  <div id="info-card">
+    <h3>EULA Analysis Results</h3>
+    <mat-card-content>
+      <div class="skill-card">
+
+          <!-- <mat-card>
+            <mat-card-title style="margin-bottom: 0px">Final Score</mat-card-title>
+          <mat-card-content [ngClass]="result?.sim_rank?.S !== '0' ? 'green-score' : 'red-score'">
+
+            <div class="grade" [ngClass]="getGrade(result?.logistic?.S) !== 'F' ? 'green-score' : 'red-score'">
+              {{getGrade(result?.logistic?.S)}}
+            </div>
+                        
+          </mat-card-content>
+        </mat-card> -->
+        <div *ngFor="let obj of data">
+          <mat-card (click) = "this.search(obj.clause)">
+            <!-- <mat-card-title>{{""  + obj.score + " : " + (obj.score > 0.7 ? "Good" : "Likely Unacceptable")}}</mat-card-title> -->
+            <mat-card-content [ngClass]="{ greenScore: obj.confidence_score > 0.7, redScore: obj.confidence_score <= 0.7, content: true }">
+              {{ obj.clause }}
+              <div style="font-size: 15px; font-style: italic;">
+                {{ parseConf(obj.confidence_score) }}%  {{ obj.confidence_score > 0.7 ? " Acceptable" : " Unacceptable"}}
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card-content>
+  </div>
+</div>
