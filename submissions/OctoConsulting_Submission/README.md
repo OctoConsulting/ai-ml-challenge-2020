@@ -31,17 +31,19 @@ If build from start:
 3. Then run `npm start` and after it finishes open your web browser and go to localhost:4200
 
 otherwise use this: 
-### go to https://octoconsulting.github.io/GSA-AI and click upload in the top right corner
+### go to https://octoconsulting.github.io/GSA-AI
 
 # Now,
 ## To Run the Flask Server
-Install Docker from [here.](https://docs.docker.com/desktop/)
+Install Docker from [here.](https://docs.docker.com/desktop/). To get the docker image, you can either build from source or download from dockerhub
 
-Open a different terminal and path to the backend folder in the submissions.
+To pull from dockerhub (easier), run the command `docker pull mee42/octo-gsa-ai` and then `docker run -p5000:5000 mee42/octo-gsa-ai flask_app.py` to run.
 
-Checkout the `works` branch.
+To build from source, Open a different terminal and path to the backend folder in the submissions.
+Checkout the `works` branch, navigate to the backend directory, and build the DockerFile using the command `docker build -t gsa-ai:latest .`
+To run, do `docker run -p5000:5000 gsa-ai:latest flask_app.py`.
+    
 
-Build the DockerFile using the command `docker build -t gsa-ai:latest .`
 
 # For more information: 
 Checkout our Wiki. 
