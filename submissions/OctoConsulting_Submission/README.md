@@ -45,7 +45,6 @@ If you want to build the front end from source:
 
 
 # For more information: 
-Check out our description of methods document.
-
+Check out our OctoConsulting Description of Methods.docx
 
 
